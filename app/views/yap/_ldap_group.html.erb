@@ -1,0 +1,46 @@
+<%= render 'ldapAddEntry' %>
+<% @displayMainFrame.each do |title, content| %>
+<div class="title"><button class="expand fa fa-plus"></button><%= title %></div>
+<div class="content">
+  <div class="toolbar" data-cn="<%= content['cn']['value'][0]%>"><button class="edit"><i class="fa fa-pencil"></i>Edit</button><button class="delete"><i class"fa fa-trash-o"></i>Delete</button></div>
+  <form action='ldapManage' method='get'>
+    <input type="hidden" name="action" value="edit" />
+    <input type="hidden" name="cn" value="<%= content['cn']['value'][0] %>" />
+    <% content.each do |subTitle, subContent|%>
+      <% if @mapName[subTitle] %>
+        <% @entryName = @mapName[subTitle] %>
+      <% else %>
+        <% @entryName = subTitle.capitalize %>
+      <% end %>
+      <% if @form['editable'].include? subTitle %>
+        <% if subContent['value'].length > 1 or subTitle == 'member' %>
+          <label class="lbLdap"><%= @entryName %>: </label>
+          <div class="listingValue>">
+            <% subContent['value'].each do |select| %>
+              <label class="chkLdap"><input class="chkLdap editable" id="<%= select %>" type="checkbox" checked disabled name="<%=subTitle%>" value="<%= select %>" /><%= select %></label>
+              <% if subTitle == 'member' %>
+                <% @userList = @userList - ["#{select}"]  %>
+              <% end %>
+            <% end %>
+            <% if subTitle == 'member' and @userList.length > 0 %>
+              <% @userList.each do |userOther| %>
+                <label class="chkLdap"><input class="chkLdap editable" id="<%= userOther %>" type="checkbox" disabled name="<%=subTitle%>[]" value="<%= userOther %>" /><%= userOther %></label>
+              <% end %>
+            <% end %>
+          </div> 
+      <% end %>
+    <% else %>
+      <dl class="dlLdap">
+        <dt class='dtLdap'><%= @entryName %>: </dt> 
+          <% subContent['value'].each do |select| %>
+            <dd class='ddLdap'><%= select %></dd>
+          <% end %>
+        </dt>
+      </dl>
+   <% end %>
+ <% end %>
+   <input class="subLdap" type="submit" class="submit"/>
+ </form>
+</div>
+<% end %>
+

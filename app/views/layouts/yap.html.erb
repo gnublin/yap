@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <title>Hey!</title>
+      <link href="/font/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+      <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+  <noscript><div class="javascriptMessage">You should to enable JavaScript to continue!</div></noscript>
+    <div id="banner">
+      <%= render 'menu' %>
+    </div>
+    <div id="menuLeft">
+      <%= render 'menuLeft' %>
+    </div>
+    <div id="mainFrame">
+      <div id="msgErr">
+          <p id="msgContent"><%= @msgErr %></p>
+        </div>
+      <%= yield(:contentMain) or yield %>
+    </div>
+  </body>
+<script src="main.js"  type="text/javascript"></script>
+<% if @subId %>
+  <script src="<%= @id %>.js"  type="text/javascript"></script>
+<%  end %>
+    
+</html>
+
+

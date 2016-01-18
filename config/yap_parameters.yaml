@@ -1,0 +1,22 @@
+---
+ldap: 
+  people: 'inetOrgPerson'
+  group: 'groupOfNames'
+ldapEditable: 
+ldapForm: 
+  editable: ['sn', 'userpassword', 'member', 'mail', 'uid']
+  inetOrgPerson: ['cn', 'uid', 'mail', 'userpassword']
+  groupOfNames: ['cn', 'member']
+ldapName:
+  inetOrgPerson: 'people'
+  groupOfNames: 'groups'
+  userpassword: 'Password'
+  dn: 'Domain name'
+  cn: 'Name'
+  sn: 'Surname'
+  uid: 'Username'
+  mail: 'Email'
+  memberof: 'Member of group(s)'
+password:
+  change: 'change'
+

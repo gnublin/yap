@@ -1,0 +1,32 @@
+<div id="tools">
+        <button id="addNew" data-type="<%= @subName %>" class="expand fa fa-plus"></button>Add new entry in <%= @subName %>
+    </div>
+    <div id="createEntry">
+        <form method="get" action="/ldapManage">
+            <input class="inpLdap" type="hidden" name="actionTo" value="add" />
+            <input class="inpLdap" type="hidden" name="type" value="<%= @subName %>" />
+            <% @form[@subName].each do |createEntry| %>
+                    <% if @mapName[createEntry] %>
+                        <% @createEntryName = @mapName[createEntry] %>
+                    <% else %>
+                        <% @createEntryName = createEntry.capitalize %>
+                    <% end %>
+                        <% @inputAdd="required" %>
+                        <% @labelAdd="lab-required" %>
+                <% if createEntry == 'userpassword' %>
+                    <label class="addLdap lab-required"><%= @createEntryName %>: <input class="inpLdap password <%= @inputAdd %>" id="<%= createEntry %>" type="password" name="<%= createEntry %>" /><button class="pass-gen-add fa fa-refresh"></button><div class='pass-clear'>gen</div></label>
+                <% else %>
+                    <% if createEntry == 'member' %>
+                        <div id="add<%= createEntry %>" class="addLdap lab-required"><%= @createEntryName %>: 
+                        <% @userList.each do |userOther| %>
+                            <label class="addLdap"><input class="inpLdap <%= @inputAdd %>" type="checkbox" name="<%= createEntry %>[]" value="<%= userOther %>" /><%= userOther %></label>
+                        <% end %></div>
+                    <% else %>
+                        <label class="addLdap lab-required"><%= @createEntryName %>: <input class="inpLdap <%= @inputAdd %>" type="text" name="<%= createEntry %>" autocomplete="off" /></label>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <button id="addEntry" class="subCreateLdap" disabled >add</button>
+        </form>
+    </div>
+

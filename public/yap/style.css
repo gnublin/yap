@@ -1,0 +1,263 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+dd, dl, dt,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+/*    font-family: Arial, sans-serif; */
+  font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;
+  font-size: 10pt;
+  margin:0;
+}   
+
+.javascriptMessage {
+  background: #a02c2c none repeat scroll 0 0;
+  box-shadow: -1px 2px 5px 1px #a02c2c;
+  color: white;
+  font-size: 38pt;
+  padding-left: 10%;
+  position: fixed;
+  width: 100%;
+  z-index: 11;
+}
+
+#banner {
+  background: #a02c2c none repeat scroll 0 0;
+  box-shadow: -1px 2px 5px 1px #a02c2c;
+  color:white;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}   
+
+.menuTab {
+    color:white;
+}
+
+#menuLeft{
+    padding:10px;
+    margin-top:40px;
+    position: fixed;
+    width:10%;
+    height: 90%;
+    z-index: 9; 
+    display:inline-block;
+}   
+#mainFrame {
+    width:80%;
+    margin-left: 10%;
+    margin-top: 50px;
+    padding: 2%; 
+    position: relative;
+    display:inline-block;
+}   
+.fa-sign-out {
+    color:white;
+}
+a { 
+    text-decoration:none;
+    color: inherit;
+}   
+a:visited {
+    margin-left:10px;
+    text-decoration:none;
+    color: inherit;
+}   
+#menu {
+    float:left;
+    list-style:none;
+    padding:5px;
+}   
+#welcome {
+    margin-right:50px;
+    float:right;
+}
+#menuListing  {
+    padding:5px;
+
+    list-style:none;
+}   
+.tab {
+    cursor:pointer;
+    display: inline-block;
+    padding:10px;
+    margin-left:20px;
+    position: relative;
+    vertical-align:middle;
+    border-bottom:2px solid #a02c2c;
+}   
+.tab:hover, .tab:visited {
+    border-bottom:2px solid;
+    color:#a02c2c;
+    background:white;
+}   
+.tabActiv {
+    border-bottom:2px solid;
+}   
+
+.subMenuActiv {
+    background: #a02c2c none repeat scroll 0 0;
+/*    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.9);  */
+    color:white;
+}   
+
+.subMenu {
+    margin-top: 20px;
+    padding: 5px;
+}
+.subMenu:hover {
+    margin-top: 20px;
+    padding: 5px;
+    color:white;
+    background: #a02c2c;
+}
+
+
+label {
+    cursor: pointer;
+    display:block;
+    width:100%;
+}
+input {
+    position: relative;
+}
+
+button {
+    border: 0;
+}   
+.fa-minus,.fa-plus, .fa-trash-o, .fa-edit{
+    background:transparent;
+    cursor:pointer;
+}   
+.dtLdap {
+    display: block;
+}
+
+.ddLdap {
+    padding: 5px 0px 5px 25px;
+}
+
+.addLdap, .lbLdap,.dlLdap {
+    padding-left: 50px;
+    padding-bottom: 15px;
+}
+
+.content {
+    border-bottom: 1px solid black;
+    display:none;
+    margin-bottom:20px;
+}
+
+.subLdap {
+    visibility: hidden;
+    display: block;
+    margin-bottom: 15px;
+    margin-left: 50px;
+}
+
+.subCreateLdap {
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.subDelLdap {
+    border: none;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.divDel {
+
+}
+
+.pass-gen {
+    visibility: hidden;
+}
+.pass-clear {
+    display: inline-block;
+
+}
+
+#lightbox{
+    color:white;
+    position:fixed;
+    visibility:hidden;
+    z-index:100;
+}
+
+.dimmer{
+    background: #000;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    position: fixed;
+    opacity: .5;
+    top: 0;
+    z-index:99;
+}
+#createEntry {
+    display: none;
+    padding-top:15px;
+}
+
+.toolbar {
+    margin-bottom: 15px;
+}
+
+#tools {
+    padding-bottom:10px;
+    margin-bottom:10px;
+    border-bottom:1px solid black;
+}
+
+#createEntry {
+    border-bottom:1px solid black;
+    margin-bottom:20px;
+}
+
+.lab-required {
+    color:red;
+}
+
+.lab-required:after {
+    content:"  (field required)";
+}
+
+#msgErr {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  width:100%;
+  transition: opacity 1s;
+}
+
+#msgErr.fade {
+  opacity: 0;
+}
+
+#msgContent {
+  display: inline-block;
+}

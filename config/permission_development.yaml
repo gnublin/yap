@@ -1,0 +1,11 @@
+---
+it:
+  read: ['password',]
+  write: ['puppet', 'ldap']
+
+sysadmin:
+  read: ['puppet']
+  write: ['tt', 'ldap']
+
+default:
+  write: ['password']
