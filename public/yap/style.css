@@ -114,6 +114,7 @@ a {
 .tabActiv {
   background:white;
   border-radius: 10px;
+  border-bottom:2px solid #a02c2c;
   cursor:pointer;
   color: #a02c2c;
   display: inline-block;
@@ -132,12 +133,12 @@ a {
 .subMenu {
     border-radius: 10px;
     margin-top: 20px;
-    padding: 20px;
+    padding: 10px;
 }
 .subMenu:hover {
     background: #a02c2c;
     color:white;
-    padding: 20px;
+    padding: 10px;
     margin-top: 20px;
 }
 
@@ -270,3 +271,11 @@ button {
 #msgContent {
   display: inline-block;
 }
+
+#logo {
+    display: inline-block;
+    float: left;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+
