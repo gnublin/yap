@@ -26,12 +26,12 @@ module Tools
 
   def errCode(code)
     case code
-      when '0'
-        return 'Operation success'
-      when '2'
-        return 'Entry already exist'
-      when '999'
-        return 'An error occured'
+      when 0
+        return 'OK : Operation success'
+      when 2
+        return 'NOK : Entry already exist'
+      when 999
+        return 'NOK : An error occured'
     end
   end
 

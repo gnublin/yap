@@ -1,7 +1,11 @@
 <ul id="menuListing">
   <% if @menuLeft %>
     <% @menuLeft.each_key do |menuEl| %>
-      <a href=/yap/<%= "#{params[:id]}?sub=#{menuEl}"%>><li><%= menuEl%></li></a>
+      <% if menuEl == @subId %>
+        <a href=/yap/<%= "#{params[:id]}?sub=#{menuEl}"%>><li class="subMenu subMenuActiv"><%= menuEl%></li></a>
+      <% else %>
+        <a href=/yap/<%= "#{params[:id]}?sub=#{menuEl}"%>><li class="subMenu"><%= menuEl%></li></a>
+      <% end %>
     <% end %>
   <%end %>
 </ul>

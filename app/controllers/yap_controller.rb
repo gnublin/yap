@@ -21,12 +21,10 @@ class YapController < ApplicationController
   end
 
   def show
-    @msgErr = params[:msgErr]
     @id = params[:id]
     @subId = params[:sub]
-    if @msgErr
-      @msgErr = errCode(@msgErr)
-    end
+    @msgErr = errCode(session[:msgErr])
+    session.delete(:msgErr)
     if !testLoggedIn
       redirect_to '/'
     end

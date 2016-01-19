@@ -29,24 +29,14 @@ function expand(){
 
 function errMsg() {
 
-  var locationArray = location.search.split(/[?|&]/)
   var errMsgEl = document.getElementById('msgErr');
-  for (var f = 0, g = locationArray.length; f < g; f++) {
-    if (locationArray[f].match(/^msgErr*/)) {
-      var msgCode = locationArray[f].split('=')[1];
-      break;
-    }
-    else {
-      msgCode = false;
-    }
-  }
-
-  if (msgCode !== false) {
-    if (msgCode > 0) {
-      errMsgEl.style.backgroundColor = 'red';
-    }
-    else if (msgCode == '0') {
+  var errMsgContent = document.getElementById('msgContent').innerHTML;
+  if (errMsgContent) {
+    if (errMsgContent.match(/^OK*/)) {
       errMsgEl.style.backgroundColor = 'green';
+    }
+    else if (errMsgContent.match(/^NOK*/)) {
+      errMsgEl.style.backgroundColor = 'red';
     }
     setTimeout(function(){errMsgEl.classList.toggle('fade')}, 3000)
   }

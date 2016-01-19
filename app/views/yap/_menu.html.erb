@@ -1,6 +1,10 @@
 <ul id=menu >
 <% @current_menu.each do |menuName| %>
-    <li id="<%= menuName %>" class="tab"><a href="/yap/<%=menuName %>" class="menuTab"><%= menuName.capitalize %></a></li>
+    <% if menuName == @id %>
+      <li id="<%= menuName %>" class="tabActiv"><a href="/yap/<%=menuName %>" class="menuTab"><%= menuName.capitalize %></a></li>
+    <% else %>
+      <li id="<%= menuName %>" class="tab"><a href="/yap/<%=menuName %>" class="menuTab"><%= menuName.capitalize %></a></li>
+    <% end %>
 <% end %>
 </ul>
 <div id="welcome">Welcome <%= @current_user %>!<a href="/logout" class="fa fa-sign-out"></a>

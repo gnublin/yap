@@ -81,12 +81,12 @@ class ApiController < ApplicationController
           ldapHash.delete('actionTo')
           result = @ldapMan.add(dn, ldapHash)
           if result == true
-            uparams[:msgErr] = 0
+            session[:msgErr] = 0
           else
-            uparams[:msgErr] = 999
+            session[:msgErr] = 999
           end
         else
-          uparams[:msgErr] = 2
+          session[:msgErr] = 2
         end
           url = "#{uri}?#{uparams.to_query}"
           redirect_to "#{url}"

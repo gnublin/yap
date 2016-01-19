@@ -52,69 +52,75 @@ body {
   z-index: 10;
 }   
 
-.menuTab {
-    color:white;
-}
-
 #menuLeft{
-    padding:10px;
-    margin-top:40px;
-    position: fixed;
-    width:10%;
-    height: 90%;
-    z-index: 9; 
-    display:inline-block;
+  padding:10px;
+  margin-top:40px;
+  position: fixed;
+  height: 90%;
+  z-index: 9; 
+  display:inline-block;
 }   
 #mainFrame {
-    width:80%;
-    margin-left: 10%;
-    margin-top: 50px;
-    padding: 2%; 
-    position: relative;
-    display:inline-block;
+  width:80%;
+  margin-left: 10%;
+  margin-top: 50px;
+  padding: 2%; 
+  position: relative;
+  display:inline-block;
 }   
-.fa-sign-out {
-    color:white;
-}
-a { 
-    text-decoration:none;
-    color: inherit;
-}   
-a:visited {
-    margin-left:10px;
-    text-decoration:none;
-    color: inherit;
-}   
-#menu {
-    float:left;
-    list-style:none;
-    padding:5px;
-}   
-#welcome {
-    margin-right:50px;
-    float:right;
-}
-#menuListing  {
-    padding:5px;
 
-    list-style:none;
+.fa-sign-out {
+  color:white;
+}
+
+a { 
+  text-decoration:none;
+  color: inherit;
 }   
+
+#menu {
+  float:left;
+  list-style:none;
+  padding:10px;
+}   
+
+#welcome {
+  float:right;
+  margin-right:50px;
+}
+
+#menuListing  {
+  list-style:none;
+  margin-top: 45px;
+  padding:5px;
+}   
+
 .tab {
-    cursor:pointer;
-    display: inline-block;
-    padding:10px;
-    margin-left:20px;
-    position: relative;
-    vertical-align:middle;
-    border-bottom:2px solid #a02c2c;
+  border-radius: 10px;
+  cursor:pointer;
+  display: inline-block;
+  padding:10px;
+  margin-left:20px;
+  position: relative;
+  vertical-align:middle;
+  border-bottom:2px solid #a02c2c;
 }   
-.tab:hover, .tab:visited {
-    border-bottom:2px solid;
-    color:#a02c2c;
-    background:white;
+
+.tab:hover {
+  background:white;
+  color: #a02c2c;
 }   
+
 .tabActiv {
-    border-bottom:2px solid;
+  background:white;
+  border-radius: 10px;
+  cursor:pointer;
+  color: #a02c2c;
+  display: inline-block;
+  padding:10px;
+  margin-left:20px;
+  position: relative;
+  vertical-align:middle;
 }   
 
 .subMenuActiv {
@@ -124,14 +130,15 @@ a:visited {
 }   
 
 .subMenu {
+    border-radius: 10px;
     margin-top: 20px;
-    padding: 5px;
+    padding: 20px;
 }
 .subMenu:hover {
-    margin-top: 20px;
-    padding: 5px;
-    color:white;
     background: #a02c2c;
+    color:white;
+    padding: 20px;
+    margin-top: 20px;
 }
 
 
@@ -248,8 +255,10 @@ button {
 
 #msgErr {
   border-radius: 10px;
+  color: white;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 5px;
+  padding-left: 10px;
   width:100%;
   transition: opacity 1s;
 }
