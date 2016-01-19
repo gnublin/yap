@@ -21,8 +21,7 @@ class SessionsController < ApplicationController
       flash.now[:danger] = "d"
       render 'new'
     else
-      ldapCheckCredentials = Net::LDAP.new :host => "192.168.100.102",
-      :port => '389',
+      ldapCheckCredentials = Net::LDAP.new :host => Rails.configuration.ldap_host,:port => Rails.configuration.ldap_port,
       :auth => {
         :username=> @userDn, 
         :password => "#{@pwd}",
