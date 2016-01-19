@@ -1,8 +1,11 @@
+<link href="/yap/font/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="yap/login.css">
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+
+<div id="main-login">
+  <div id="login">
+    <img id="logo-login" src='/yap/yap.svg'/>
     <%= form_for(:session, url: login_path) do |f| %>
 
       <%= f.label :username %>

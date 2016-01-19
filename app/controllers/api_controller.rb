@@ -37,12 +37,12 @@ class ApiController < ApplicationController
         if dn
           result = @ldapMan.delete(dn)
           if result == true
-            uparams[:msgErr] = 0
+            session[:msgErr] = 0
           else
-            uparams[:msgErr] = 999
+            session[:msgErr] = 999
           end
         else
-          uparams[:msgErr] = 3
+          session[:msgErr] = 2
         end
           url = "#{uri}?#{uparams.to_query}"
           redirect_to "#{url}"
@@ -57,14 +57,13 @@ class ApiController < ApplicationController
           ldapHash.delete('actionTo')
           ldapHash.delete('cn')
           result = @ldapMan.modify(dn,ldapHash)
-          p result
           if result == true
-            uparams[:msgErr] = 0
+            session[:msgErr] = 0
           else
-            uparams[:msgErr] = 999
+            session[:msgErr] = 999
           end
         else
-          uparams[:msgErr] = 3
+          session[:msgErr] = 2
         end
           url = "#{uri}?#{uparams.to_query}"
           redirect_to "#{url}"
