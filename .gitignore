@@ -36,3 +36,5 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+
+config/environments/production.rb
