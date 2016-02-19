@@ -17,6 +17,6 @@ ldapName:
   uid: 'Username'
   mail: 'Email'
   memberof: 'Member of group(s)'
-password:
-  change: 'change'
+profil:
+  password: 'Password'
 

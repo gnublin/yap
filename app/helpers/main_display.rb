@@ -6,7 +6,7 @@ class MainDisplay
   def ldapQuery(filterKey, filterValue, attrs)
     ldapConnect = Net::LDAP.new :host => Rails.configuration.ldap_host,:port => Rails.configuration.ldap_port
     ldapConnect.auth Rails.configuration.ldap_admin, Rails.configuration.ldap_password
-    filter = Net::LDAP::Filter.eq( filterKey, filterValue ) 
+    filter = Net::LDAP::Filter.eq( filterKey, filterValue )
     treebase = Rails.configuration.ldap_treebase
     dataEntries = Hash.new()
     ldapConnect.search( :base => treebase, :filter => filter, :attributes => attrs) do |entry|
@@ -18,10 +18,10 @@ class MainDisplay
             dataEntries["#{group}"]["#{attribute}"]['value'] = Array.new()
             values.each do |value|
                 dataEntries["#{group}"]["#{attribute}"]['value'] << value.force_encoding('utf-8')
-            end 
+            end
             dataEntries["#{group}"]["#{attribute}"]['value'] = dataEntries["#{group}"]["#{attribute}"]['value'].sort
-        end 
-    end 
+        end
+    end
     return Hash[dataEntries.sort]
   end
 
@@ -37,8 +37,11 @@ class MainDisplay
     userList = Array.new()
     ldapQuery('objectClass', 'inetOrgPerson', ['dn']).each do |user, value|
         userList << value['dn']['value'][0]
-    end 
+    end
     return userList.sort
   end
-  
+
+  def password
+  end
+
 end

@@ -38,10 +38,10 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.ldap_host = "192.168.100.102"
+  config.ldap_host = "localhost"
   config.ldap_port = "389"
-  config.ldap_treebase = "dc=shpb,dc=lan"
-  config.ldap_admin = "cn=admin,dc=shpb,dc=lan"
+  config.ldap_treebase = "dc=ncis,dc=lan"
+  config.ldap_admin = "cn=admin,dc=ncis,dc=lan"
   config.ldap_password = "toto"
 
 end
