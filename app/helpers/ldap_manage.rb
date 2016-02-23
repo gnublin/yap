@@ -14,14 +14,14 @@ class LdapManage
 
     @ldapConnect.auth Rails.configuration.ldap_admin, Rails.configuration.ldap_password
     return @ldapConnect.add :dn => dn, :attributes => ldapHash
-    
+
   end
 
   def delete(dn)
 
     @ldapConnect.auth Rails.configuration.ldap_admin, Rails.configuration.ldap_password
     return @ldapConnect.delete :dn => dn
-    
+
   end
 
   def modify(dn, ops)
@@ -35,7 +35,7 @@ class LdapManage
 
     @ldapConnect.auth Rails.configuration.ldap_admin, Rails.configuration.ldap_password
     return @ldapConnect.modify :dn => dn, :operations => modify
-    
+
   end
 
 
