@@ -34,9 +34,8 @@ class YapController < ApplicationController
     @current_menu = @ldapTools.menu(@memberOf)
     @permission = @ldapTools.perms(@memberOf,@id)
     @menuLeft = @ldapTools.menuLeft(@id)
-    p @permission
     if !@permission 
-    #  redirect_to '/yap/dashboard'
+      redirect_to '/yap/dashboard'
       puts "fail"
     else
       if @subId

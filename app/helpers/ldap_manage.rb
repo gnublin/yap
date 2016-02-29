@@ -6,8 +6,8 @@ class LdapManage
 
   def add(dn, ldapHash)
 
-    if !ldapHash[:sn] or ldapHash[:sn].empty?
-      ldapHash[:sn] = ldapHash[:uid]
+    if !ldapHash[:sn] or ldapHash[:sn].empty? and ldapHash[:type] != 'groupOfNames'
+      ldapHash[:sn] = ldapHash[:uid] 
     end
     ldapHash[:objectclass] = [ldapHash[:type], 'top']
     ldapHash.delete('type')

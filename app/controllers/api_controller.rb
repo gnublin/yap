@@ -17,6 +17,7 @@ class ApiController < ApplicationController
 
     ldapHash = ldapParams
     actionTo = ldapHash[:actionTo]
+
     if ldapHash[:cn]
       cn = ldapHash[:cn].strip
     end
@@ -39,7 +40,6 @@ class ApiController < ApplicationController
           uri = URI(request.referer).path
           uparams = URI::decode_www_form(URI(request.referer).query).to_h
           uparams.delete("msgErr")
-           p dn
         if dn
           result = @ldapMan.delete(dn)
           if result == true
@@ -75,7 +75,6 @@ class ApiController < ApplicationController
           redirect_to "#{url}"
 
       when 'add'
-          dn = LdapGetInfo.new.getDn({:type => 'uid', :value => uid})
           ref = request.referer
           uri = URI(request.referer).path
           uparams = URI::decode_www_form(URI(request.referer).query).to_h
@@ -122,11 +121,11 @@ private
       end
       if paramsKey == 'userpassword' and !params[:userpassword].empty? and !params[:userpassword].match('{MD5}')
         params[:userpassword] = md5Pass params[:userpassword]
-      end 
+      end
       if params[:"#{paramsKey}"].empty?
         params.delete(paramsKey)
-      end  
-    end 
+      end
+    end
     params.permit(:sn,:cn,:actionTo,:type,:uid,:mail,:userpassword,:passwd,:member => [])
   end
 end

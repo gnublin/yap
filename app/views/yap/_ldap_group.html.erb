@@ -3,8 +3,8 @@
 <div class="title"><button class="expand fa fa-plus"></button><%= title %></div>
 <div class="content">
   <div class="toolbar" data-cn="<%= content['cn']['value'][0]%>"><button class="edit"><i class="fa fa-pencil"></i>Edit</button><button class="delete"><i class"fa fa-trash-o"></i>Delete</button></div>
-  <form action='ldapManage' method='get'>
-    <input type="hidden" name="action" value="edit" />
+  <form action='/ldapManage' method='get'>
+    <input type="hidden" name="actionTo" value="edit" />
     <input type="hidden" name="cn" value="<%= content['cn']['value'][0] %>" />
     <% content.each do |subTitle, subContent|%>
       <% if @mapName[subTitle] %>
@@ -17,7 +17,7 @@
           <label class="lbLdap"><%= @entryName %>: </label>
           <div class="listingValue>">
             <% subContent['value'].each do |select| %>
-              <label class="chkLdap"><input class="chkLdap editable" id="<%= select %>" type="checkbox" checked disabled name="<%=subTitle%>" value="<%= select %>" /><%= select %></label>
+              <label class="chkLdap"><input class="chkLdap editable" id="<%= select %>" type="checkbox" checked disabled name="<%=subTitle%>[]" value="<%= select %>" /><%= select %></label>
               <% if subTitle == 'member' %>
                 <% @userList = @userList - ["#{select}"]  %>
               <% end %>
@@ -39,7 +39,7 @@
       </dl>
    <% end %>
  <% end %>
-   <input class="subLdap" type="submit" class="submit"/>
+  <button class="subLdap submit" >Submit</button>
  </form>
 </div>
 <% end %>

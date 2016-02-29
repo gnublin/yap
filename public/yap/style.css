@@ -154,11 +154,11 @@ input {
 
 button {
     border: 0;
-}   
+}
 .fa-minus,.fa-plus, .fa-trash-o, .fa-edit{
     background:transparent;
     cursor:pointer;
-}   
+}
 .dtLdap {
     display: block;
 }
@@ -210,29 +210,29 @@ button {
 }
 
 #lightbox{
-    color:white;
-    position:fixed;
-    visibility:hidden;
-    z-index:100;
+  color:white;
+  position:fixed;
+  visibility:hidden;
+  z-index:100;
 }
 
 .dimmer{
-    background: #000;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    position: fixed;
-    opacity: .5;
-    top: 0;
-    z-index:99;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  position: fixed;
+  opacity: .5;
+  top: 0;
+  z-index:99;
 }
 #createEntry {
-    display: none;
-    padding-top:15px;
+  display: none;
+  padding-top:15px;
 }
 
 .toolbar {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 #tools {
@@ -251,6 +251,8 @@ button {
 }
 
 .lab-required:after {
+    position: fixed;
+        padding-left: 10px;
     content:"  (field required)";
 }
 
@@ -275,9 +277,25 @@ button {
 }
 
 #logo {
-    display: inline-block;
-    float: left;
-    padding-left: 20px;
-    vertical-align: middle;
+  display: inline-block;
+  float: left;
+  padding-left: 20px;
+  vertical-align: middle;
 }
 
+.chkLdap {
+  margin-left: 45px;
+}
+
+button#addEntry {
+  margin-left: 45px;
+  padding: 10px;
+}
+.submit {
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.pass-gen-add, .pass-gen-proile {
+  margin: 10px;
+}
