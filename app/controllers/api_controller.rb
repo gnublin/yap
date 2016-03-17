@@ -1,5 +1,5 @@
 class ApiController < ApplicationController
-  
+
   def initialize
     @ldapTools = LdapTools.new
   end
@@ -17,12 +17,19 @@ class ApiController < ApplicationController
 
     ldapHash = ldapParams
     actionTo = ldapHash[:actionTo]
-    cn = ldapHash[:cn].strip
+
+    if ldapHash[:cn]
+      cn = ldapHash[:cn].strip
+    end
     type = ldapHash[:type]
-    uid = ldapHash[:uid]
+    if ldapHash[:uid]
+      uid = ldapHash[:uid]
+    else
+      uid = session[:user_id]
+    end
     passwd = ldapHash[:userpassword]
     @ldapMan = LdapManage.new
-    if type 
+    if type
       ou = @ldapTools.parameters("ldapName")[type]
     end
 
@@ -33,7 +40,6 @@ class ApiController < ApplicationController
           uri = URI(request.referer).path
           uparams = URI::decode_www_form(URI(request.referer).query).to_h
           uparams.delete("msgErr")
-           p dn
         if dn
           result = @ldapMan.delete(dn)
           if result == true
@@ -69,8 +75,6 @@ class ApiController < ApplicationController
           redirect_to "#{url}"
 
       when 'add'
-          dn = LdapGetInfo.new.getDn({:type => 'uid', :value => uid})
-          p uid
           ref = request.referer
           uri = URI(request.referer).path
           uparams = URI::decode_www_form(URI(request.referer).query).to_h
@@ -89,10 +93,26 @@ class ApiController < ApplicationController
         end
           url = "#{uri}?#{uparams.to_query}"
           redirect_to "#{url}"
+
+      when 'modify'
+        dn = LdapGetInfo.new.getDn({:type => 'uid', :value => uid})
+        ldapHash.delete('actionTo')
+        result = @ldapMan.modify(dn,ldapHash)
+        if result == true
+          session[:msgErr] = 0
+        else
+          session[:msgErr] = 999
+        end
+        ref = request.referer
+        uri = URI(request.referer).path
+        uparams = URI::decode_www_form(URI(request.referer).query).to_h
+        uparams.delete("msgErr")
+        url = "#{uri}?#{uparams.to_query}"
+        redirect_to "#{url}"
     end
   end
 
-private 
+private
   def ldapParams
     test = @ldapTools.parameters("ldapForm")[params[:type]]
     params.each_key do |paramsKey|
@@ -101,11 +121,11 @@ private
       end
       if paramsKey == 'userpassword' and !params[:userpassword].empty? and !params[:userpassword].match('{MD5}')
         params[:userpassword] = md5Pass params[:userpassword]
-      end 
+      end
       if params[:"#{paramsKey}"].empty?
         params.delete(paramsKey)
-      end  
-    end 
+      end
+    end
     params.permit(:sn,:cn,:actionTo,:type,:uid,:mail,:userpassword,:passwd,:member => [])
   end
 end

@@ -77,10 +77,10 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.ldap_host = "ldap.xxx.lan"
+  config.ldap_host = "localhost"
   config.ldap_port = "389"
-  config.ldap_treebase = "dc=xxx,dc=lan"
-  config.ldap_admin = "cn=admin,dc=shpb,dc=lan"
-  config.ldap_password = "xxxwww"
+  config.ldap_treebase = "dc=ncis,dc=lan"
+  config.ldap_admin = "cn=admin,dc=ncis,dc=lan"
+  config.ldap_password = "toto"
 
 end

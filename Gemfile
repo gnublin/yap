@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use SCSS for stylesheets
@@ -22,8 +21,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'net-ldap', '>=0.10.1'
-
-gem 'yaml'
+#gem 'yaml'
 
 # Use Unicorn as the app server
 gem 'unicorn'

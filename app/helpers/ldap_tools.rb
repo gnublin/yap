@@ -7,26 +7,30 @@ class LdapTools
 
   def perms(memberOf,menuName)
     @perms = false
+    if memberOf.length < 0
+      memberOf = ['default']
+    else
+      memberOf << 'default'
+    end
     memberOf.each do |perms|
-      if !@permsYaml[perms]
-        perms = 'default'
-      end
-      if !@permsYaml[perms]['read']
-        arrayRead = []
-      else
-        arrayRead = @permsYaml[perms]['read']
-      end
-      if !@permsYaml[perms]['write']
-        arrayWrite = []
-      else
-        arrayWrite = @permsYaml[perms]['write']
-      end
+      if @permsYaml[perms]
+        if !@permsYaml[perms]['read']
+          arrayRead = []
+        else
+          arrayRead = @permsYaml[perms]['read']
+        end
+        if !@permsYaml[perms]['write']
+          arrayWrite = []
+        else
+          arrayWrite = @permsYaml[perms]['write']
+        end
 
-      if arrayRead.include? menuName and @perms === false
-        @perms = 'read'
-      end
-      if arrayWrite.include? menuName and @perms != 'write'
-        @perms = 'write'
+        if arrayRead.include? menuName and @perms === false
+          @perms = 'read'
+        end
+        if arrayWrite.include? menuName and @perms != 'write'
+          @perms = 'write'
+        end
       end
     end
 
@@ -57,7 +61,7 @@ class LdapTools
       menuArray.each do |name|
         menuTab << name
       end
-      
+
     end
     menuTab = menuTab.uniq.sort
 

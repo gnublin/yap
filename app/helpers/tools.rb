@@ -17,10 +17,10 @@ module Tools
       first = []
       nameArray.each do |constructName|
         first << constructName[0].downcase
-      end 
+      end
       first << last
       uid = first.join
-    end 
+    end
     return uid
   end
 
